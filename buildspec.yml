@@ -12,6 +12,6 @@ phases:
     commands:
       - aws --version
       - docker build -t test-app .
-      - docker tag test-app:latest 661159855470.dkr.ecr.us-east-1.amazonaws.com/test-app:latest
-      - docker push 661159855470.dkr.ecr.us-east-1.amazonaws.com/test-app:latest
-      - aws ecs update-service --cluster cb-cluster --service cb-service --force-new-deployment --region us-east-1
+      - docker tag test-app:latest 661159855470.dkr.ecr.us-east-1.amazonaws.com/python-flask:latest
+      - docker push 661159855470.dkr.ecr.us-east-1.amazonaws.com/python-flask:latest
+      - aws ecs update-service --cluster cb-cluster --service cb-service --desired-count 3 --health-check-grace-period-seconds 60 --force-new-deployment --region us-east-1
