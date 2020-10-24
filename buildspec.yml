@@ -11,6 +11,6 @@ phases:
   build:
     commands:
       - aws --version
-      - docker build -t python-flask:0-10-0 packer_build_0_10_0
-      - docker build -t $REPOSITORY_URI:0-10-0 .
-      - docker push $REPOSITORY_URI:0-10-0
+      - docker build -t test-app .
+      - docker tag test-app:latest 661159855470.dkr.ecr.us-east-1.amazonaws.com/test-app:latest
+      - docker push 661159855470.dkr.ecr.us-east-1.amazonaws.com/test-app:latest
